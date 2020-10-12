@@ -1,7 +1,7 @@
 <!--
  * @Author: lhj
  * @Date: 2020-10-10 22:20:53
- * @LastEditTime: 2020-10-11 21:05:29
+ * @LastEditTime: 2020-10-12 15:37:23
  * @LastEditors: Please set LastEditors
  * @Description: 上下文字跑马灯（marquee）
  * @FilePath: \ls-web\src\components\common\marquee\MarqueeY.vue
@@ -11,8 +11,20 @@
   <div ref="outBox" class="out-box">
     <div ref="inBox" class="in-box"  @mouseenter="mouseOver" @mouseleave="mouseLeave">
       <div class="show-list" v-for="(item,index) in sendVal" :key='index' ref='showList'>
-        <el-link v-if="hyperLink" class="content" :underline="false" :href="item.url">{{index+1}}.{{item.content}}</el-link>
-        <span v-else class="content">{{index+1}}.{{item.content}}</span>
+        <div style="margin-bottom: 25px">
+          <el-link v-if="hyperLink" class="content" :underline="false" :href="item.url">
+            {{index+1}}.{{item.content}}
+            <i v-if="item.deptName && item.editor">
+              {{item.editor}}({{item.deptName}})
+            </i>
+          </el-link>
+          <span v-else class="content">
+            {{index+1}}.{{item.content}} 
+            <i v-if="item.deptName && item.editor">
+              <br/> {{item.editor}}({{item.deptName}})
+            </i>
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -57,19 +69,17 @@ export default {
     }
   },
   mounted () {
-    this.$nextTick(() => {
-      // 获取样式对象（内容列表数组）
-      const items = this.$refs.showList
-      const arr = []
-      // 因为设置的margin值一样，所以取第一个就行。
-      // const margin = this.getMargin(items[0])
-      items.forEach(item => {
-        // 把宽度和 margin 加起来就是每一个元素需要移动的距离
-        arr.push(item.clientHeight)
-      })
-      this.disArr = arr
-      this.initMove()
+    // 获取样式对象（内容列表数组）
+    const items = this.$refs.showList
+    const arr = []
+    // 因为设置的margin值一样，所以取第一个就行。
+    // const margin = this.getMargin(items[0])
+    items.forEach(item => {
+      // 把宽度和 margin 加起来就是每一个元素需要移动的距离
+      arr.push(item.clientHeight)
     })
+    this.disArr = arr
+    this.initMove()
   },
   beforeDestroy () {
     // 页面关闭清除定时器
@@ -136,14 +146,14 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
-  margin: 0 10px;
+  // margin: 0 10px;
   overflow: hidden;
   .in-box{
     position: absolute;
     white-space: break-all;
     text-align: start;
     .show-list{
-      line-height: 40px;
+      line-height: 20px;
       .content{
         color: #FF8900;
         font-size: 0.8rem;

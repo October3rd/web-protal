@@ -1,7 +1,7 @@
 <!--
  * @Author: lhj
  * @Date: 2020-10-05 12:39:32
- * @LastEditTime: 2020-10-10 13:26:03
+ * @LastEditTime: 2020-10-12 15:37:04
  * @LastEditors: Please set LastEditors
  * @Description: 动态悬浮碰撞广告效果
  * @FilePath: \ls-web\src\components\common\suspendAdvert\DynamicAdvert.vue
@@ -81,13 +81,10 @@
           that.clientH = document.documentElement.clientHeight
         })()
       })
-      // dom渲染完成后，执行函数
-      this.$nextTick(() => {
-        this.imageInfo()
-        this.interval = setInterval(() => {
-          this.move()
-        }, this.speed)
-      })
+      this.imageInfo()
+      this.interval = setInterval(() => {
+        this.move()
+      }, this.speed)
     },
 
     beforeDestroy () {

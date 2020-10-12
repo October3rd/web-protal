@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-09-27 15:42:38
- * @LastEditTime: 2020-10-06 10:19:29
+ * @LastEditTime: 2020-10-12 09:31:59
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \ls-web\.eslintrc.js
@@ -50,6 +50,9 @@ module.exports = {
     "vue/multiline-html-element-content-newline":"off",
     "vue/name-property-casing": ["error", "PascalCase"],
     "vue/no-v-html": "off",
+    "vue/no-unused-components": [1, {
+      "ignoreWhenBindingPresent": true
+    }],
     // 定义对象的set存取器属性时，强制定义get
     'accessor-pairs': 0,
     // 要求箭头函数空格

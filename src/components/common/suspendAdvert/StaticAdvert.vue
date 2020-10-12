@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-10-05 12:40:28
- * @LastEditTime: 2020-10-09 11:04:24
+ * @LastEditTime: 2020-10-12 15:37:14
  * @LastEditors: Please set LastEditors
  * @Description: 静态广告
  * @FilePath: \ls-web\src\components\common\suspendAdvert\StaticAdvert.vue
@@ -57,9 +57,7 @@
         })()
       })
     if (this.direction === 'right'){
-      this.$nextTick(() => {
-        this.getPosX()
-      })
+      this.getPosX()
     }
   },
   methods: {

@@ -1,0 +1,117 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-10-12 14:55:39
+ * @LastEditTime: 2020-10-12 15:06:27
+ * @LastEditors: Please set LastEditors
+ * @Description: 顶部导航条
+ * @FilePath: \ls-web\src\views\home\components\TopBar.vue
+-->
+<template>
+  <nav-bar class="top-bar">
+    <template #left>
+      <el-row type="flex"
+              align="middle">
+        <el-link type="warning"
+                 :underline="false"
+                 style="margin: 0 20px; font-size:16px">常用网址:</el-link>
+        <div v-for="(item, i) in linkInfos"
+             :key="i">
+          <el-link class="rlink-left"
+                   type="primary"
+                   :href="item.href">
+            <img class="logo-left"
+                 :src="getImage(item.icon)" />{{item.name}}
+          </el-link>
+          <el-divider direction="vertical"></el-divider>
+        </div>
+      </el-row>
+    </template>
+    <template #center>
+      <el-row type="flex"
+              justify="end">
+        <!-- <marquee-x :send-val="sendVal" :hyper-link="true"/> -->
+        <marquee-x :send-val="sendVal" />
+        <single-search />
+      </el-row>
+      <!-- </el-row> -->
+    </template>
+    <template #right>
+      <el-row type="flex"
+              align="middle">
+        <login />
+      </el-row>
+    </template>
+  </nav-bar>
+</template>
+
+<script>
+import NavBar from 'components/common/navBar/NavBar'
+import Login from 'components/common/login/Login'
+import SingleSearch from 'components/common/search/SingleSearch'
+import MarqueeX from 'components/common/marquee/MarqueeX'
+
+
+export default {
+  name: 'TopBar',
+  components: {
+    NavBar,
+    Login,
+    SingleSearch,
+    MarqueeX
+  },
+  data() {
+    return {
+      // 常用导航
+      linkInfos: [{ href: 'http://www.baidu.com', name: '总行', icon: 'logo.png' }, 
+      { href: 'http://www.baidu.com', name: '省行', icon: 'logo.png' }],
+       // 滚动字幕
+      sendVal: [{ content: '来自东莞市的', url: 'http://www.baidu.com' },
+            { content: '来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的', url: 'http://www.baidu.com' },
+            { content: '来自常州市的', url: 'http://www.baidu.com' },
+            { content: '来自金华市的', url: 'http://www.baidu.com' },
+            { content: '来自贵阳市的', url: 'http://www.baidu.com' },
+            { content: '来自长春市的', url: 'http://www.baidu.com' },
+            { content: '来自泉州市的', url: 'http://www.baidu.com' },
+            { content: '来自南昌市的', url: 'http://www.baidu.com' },
+            { content: '来自南京市的', url: 'http://www.baidu.com' },
+            { content: '来自天津市的', url: 'http://www.baidu.com' },
+            { content: '来自宁波市的', url: 'http://www.baidu.com' },
+            { content: '来自嘉兴市的', url: 'http://www.baidu.com' },
+            { content: '来自长沙市的', url: 'http://www.baidu.com' },
+            { content: '来自济南市的', url: 'http://www.baidu.com' },
+            { content: '来自杭州市的', url: 'http://www.baidu.com' }]
+    }
+  },
+  computed: {
+    // 获取图片资源
+    getImage() {
+      return function(name) {
+        return require('assets/images/' + name)
+      }
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.top-bar {
+      position: fixed;
+      width: 100%;
+      height: 60px;
+      line-height: 60px;
+      z-index: 2000;
+
+      .el-row {
+        height: 60px;
+        
+        .logo-left {
+          vertical-align: middle;
+          width: 16px;
+          height: 16px;
+        }
+        .rlink-left {
+          font-size: 16px;
+        }
+      }
+    }
+</style>

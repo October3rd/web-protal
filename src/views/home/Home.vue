@@ -1,37 +1,18 @@
 <template>
   <div class="home">
-    <div class="background">
-      <img :src="backgroundImage" width="100%" height="100%" alt="" />
-    </div>
+    <!-- 背景图 -->
+    <background-view />
+    <!-- 导航 -->
+    <top-bar />
     <div class="main">
-      <nav-bar class="top-bar">
-        <template #left>
-          <el-row type="flex" align="middle">
-            <el-link type="warning" :underline="false" style="margin: 0 0 0 20px; font-size:16px" >常用网址:</el-link>
-            <el-link class="rlink-left" type="primary" v-for="(item, i) in linkInfos" :key="i" :href="item.href">
-              <img class="logo-left" :src="getImage(item.icon)" />{{item.name}}
-            </el-link>
-          </el-row>
-        </template>
-        <template #center>
-          <!-- <el-row type="flex" justify="end"> -->
-          <el-row type="flex" justify="end">
-            <!-- <marquee-x :send-val="sendVal" :hyper-link="true"/> -->
-            <marquee-x :send-val="sendVal" />
-            <single-search />
-          </el-row>
-          <!-- </el-row> -->
-        </template>
-        <template #right>
-          <el-row type="flex" align="middle">
-            <login />
-          </el-row>
-        </template> 
-      </nav-bar>
+      <!-- 主页 -->
       <container-bar class="container">
+        <!-- header -->
         <template #header>
           <header-bar class="header">
+            <!-- 门户大图片 -->
             <el-image :src="getImage('ls.jpg')" lazy></el-image>
+            <!-- 菜单选择 -->
             <nav-bar>
               <template #center>
                 <menu-bar :menus="menus" />
@@ -39,22 +20,23 @@
             </nav-bar>
           </header-bar>
         </template>
+        <!-- main -->
         <template #main>
-          <dynamic-advert />
-          正文
-          <el-row type="flex" justify="start" style="height: 100px">
-              <el-card style="width: 200px;">
-                <marquee-y :send-val="sendVal" />
-              </el-card>
+          <el-row type="flex" justify="start">
+            <!-- <marquee-x :send-val="sendVal"></marquee-x>
+            <marquee-y :send-val="sendVal" /> -->
+            <card-bar style="width: 340px;" />
           </el-row>
         </template>
+        <!-- footer -->
         <template #footer>
           <!-- 页脚 -->
           <!-- <el-image :src="require('@/assets/ls.jpg')" lazy fit="fill"></el-image> -->
         </template>
       </container-bar>
-    <static-advert :url="{ path: '/test' }" />
-    <static-advert :direction="'right'"/>
+    <!-- 广告 -->
+    <adverts-bar />
+    <!-- 返回顶部 -->
     <back-top />
     </div>
   </div>
@@ -66,15 +48,12 @@ import ContainerBar from 'components/common/layout/ContainerBar'
 import HeaderBar from 'components/common/layout/HeaderBar'
 import NavBar from 'components/common/navBar/NavBar'
 import BackTop from 'components/common/backTop/BackTop'
-import DynamicAdvert from 'components/common/suspendAdvert/DynamicAdvert'
-import StaticAdvert from 'components/common/suspendAdvert/StaticAdvert'
-import Login from 'components/common/login/Login'
-import SingleSearch from 'components/common/search/SingleSearch'
-import MarqueeX from 'components/common/marquee/MarqueeX'
-import MarqueeY from 'components/common/marquee/MarqueeY'
 
 import MenuBar from 'components/content/home/menu/MenuBar'
-// import CardBar from 'components/content/home/card/CardBar'
+import CardBar from 'components/content/home/card/CardBar'
+import BackgroundView from 'views/home/components/BackgroundView'
+import TopBar from 'views/home/components/TopBar'
+import AdvertsBar from 'views/home/components/AdvertsBar'
 
 export default {
   name: 'Home',
@@ -83,25 +62,17 @@ export default {
     HeaderBar,
     NavBar,
     BackTop,
-    DynamicAdvert,
-    StaticAdvert,
-    Login,
-    SingleSearch,
-    MarqueeX,
 
-    MarqueeY,
     MenuBar,
-    // CardBar
+    CardBar,
+    BackgroundView,
+    TopBar,
+    AdvertsBar
   },
   data() {
     return {
-      // 背景图
-      backgroundImage: require('assets/images/background1.jpg'),
       input: '',
       // staticAdURL: { path: '/test' },
-      // 常用导航
-      linkInfos: [{ href: 'http://www.baidu.com', name: '总行', icon: 'logo.png' }, 
-      { href: 'http://www.baidu.com', name: '省行', icon: 'logo.png' }],
       // 通过API调用获取菜单树
       menus: [
         {
@@ -161,22 +132,6 @@ export default {
           menuName: '通讯录'
         }
       ],
-      // 滚动字幕
-      sendVal: [{ content: '来自东莞市的', url: 'http://www.baidu.com' },
-            { content: '来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的', url: 'http://www.baidu.com' },
-            { content: '来自常州市的', url: 'http://www.baidu.com' },
-            { content: '来自金华市的', url: 'http://www.baidu.com' },
-            { content: '来自贵阳市的', url: 'http://www.baidu.com' },
-            { content: '来自长春市的', url: 'http://www.baidu.com' },
-            { content: '来自泉州市的', url: 'http://www.baidu.com' },
-            { content: '来自南昌市的', url: 'http://www.baidu.com' },
-            { content: '来自南京市的', url: 'http://www.baidu.com' },
-            { content: '来自天津市的', url: 'http://www.baidu.com' },
-            { content: '来自宁波市的', url: 'http://www.baidu.com' },
-            { content: '来自嘉兴市的', url: 'http://www.baidu.com' },
-            { content: '来自长沙市的', url: 'http://www.baidu.com' },
-            { content: '来自济南市的', url: 'http://www.baidu.com' },
-            { content: '来自杭州市的', url: 'http://www.baidu.com' }]
     }
   },
   computed: {
@@ -195,35 +150,7 @@ export default {
 .home {
   position: relative;
   
-  .background {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-  }
-  
   .main {
-    .top-bar {
-      position: fixed;
-      width: 100%;
-      height: 60px;
-      line-height: 60px;
-      z-index: 2000;
-
-      .el-row {
-        height: 60px;
-        
-        .logo-left {
-          vertical-align: middle;
-          width: 16px;
-          height: 16px;
-        }
-        .rlink-left {
-          margin-left: 10px;
-          font-size: 16px;
-        }
-      }
-    }
     .header {
       margin-top: 60px;
       font-size: 0;
