@@ -1,0 +1,30 @@
+{
+  "id": "2115646",
+  "name": "vue-ls",
+  "font_family": "iconfont",
+  "css_prefix_text": "ls-icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "7586699",
+      "name": "企业门户",
+      "font_class": "qiyemenhu",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "8059059",
+      "name": "流程门户",
+      "font_class": "liuchengmenhu",
+      "unicode": "edf6",
+      "unicode_decimal": 60918
+    },
+    {
+      "icon_id": "6886337",
+      "name": "分隔",
+      "font_class": "fenge",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    }
+  ]
+}
