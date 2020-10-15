@@ -1,7 +1,7 @@
 /*
  * @Author: oct3rd
  * @Date: 2020-09-27 15:42:39
- * @LastEditTime: 2020-10-07 11:21:17
+ * @LastEditTime: 2020-10-14 21:06:28
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \ls-web\src\router\index.js
@@ -9,6 +9,12 @@
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
+const originalPush = VueRouter.prototype.push
+
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 
 // 1.安装路由
 Vue.use(VueRouter)

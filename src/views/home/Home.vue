@@ -22,11 +22,11 @@
         </template>
         <!-- main -->
         <template #main>
-          <el-row type="flex" justify="start">
-            <!-- <marquee-x :send-val="sendVal"></marquee-x>
-            <marquee-y :send-val="sendVal" /> -->
-            <card-bar style="width: 340px;" />
-          </el-row>
+          <!-- <div style="height: 1500px;"> -->
+
+            <main-view />
+          <!-- </div> -->
+          <!-- <card-list /> -->
         </template>
         <!-- footer -->
         <template #footer>
@@ -50,9 +50,9 @@ import NavBar from 'components/common/navBar/NavBar'
 import BackTop from 'components/common/backTop/BackTop'
 
 import MenuBar from 'components/content/home/menu/MenuBar'
-import CardBar from 'components/content/home/card/CardBar'
 import BackgroundView from 'views/home/components/BackgroundView'
 import TopBar from 'views/home/components/TopBar'
+import MainView from 'views/home/components/MainView'
 import AdvertsBar from 'views/home/components/AdvertsBar'
 
 export default {
@@ -64,9 +64,9 @@ export default {
     BackTop,
 
     MenuBar,
-    CardBar,
     BackgroundView,
     TopBar,
+    MainView,
     AdvertsBar
   },
   data() {
@@ -151,13 +151,17 @@ export default {
   position: relative;
   
   .main {
+    .container {
+    background-color: rgba(255,255,255,1);
     .header {
+      padding: 0;
       margin-top: 60px;
       font-size: 0;
       .el-image {
         width: 100%;
         height: 140px;
       }
+    }
     }
     
   }

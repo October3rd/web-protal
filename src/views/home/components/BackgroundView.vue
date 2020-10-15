@@ -1,7 +1,7 @@
 <!--
  * @Author: lhj
  * @Date: 2020-10-12 14:43:45
- * @LastEditTime: 2020-10-12 14:50:14
+ * @LastEditTime: 2020-10-12 15:59:24
  * @LastEditors: Please set LastEditors
  * @Description: 背景图
  * @FilePath: \ls-web\src\views\home\components\BackgroundView.vue
@@ -28,7 +28,7 @@
     // 获取图片资源
     getImage() {
       return function(name) {
-        return require('assets/images/' + name)
+        return name ? require('assets/images/' + name) : ''
       }
     }
   }

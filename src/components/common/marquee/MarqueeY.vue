@@ -1,7 +1,7 @@
 <!--
  * @Author: lhj
  * @Date: 2020-10-10 22:20:53
- * @LastEditTime: 2020-10-12 15:37:23
+ * @LastEditTime: 2020-10-14 21:49:31
  * @LastEditors: Please set LastEditors
  * @Description: 上下文字跑马灯（marquee）
  * @FilePath: \ls-web\src\components\common\marquee\MarqueeY.vue
@@ -153,10 +153,10 @@ export default {
     white-space: break-all;
     text-align: start;
     .show-list{
-      line-height: 20px;
+      line-height: 24px;
       .content{
         color: #FF8900;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
       }
     }
   }

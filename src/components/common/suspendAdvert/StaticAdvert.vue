@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-10-05 12:40:28
- * @LastEditTime: 2020-10-12 15:37:14
+ * @LastEditTime: 2020-10-13 10:04:49
  * @LastEditors: Please set LastEditors
  * @Description: 静态广告
  * @FilePath: \ls-web\src\components\common\suspendAdvert\StaticAdvert.vue
@@ -80,9 +80,10 @@
 <style lang="scss" scoped>
 .static-advert {
   position: fixed;
-  width: 180px;
+  width: 150px;
   left: 0px;
   top: 30%;
+  z-index: 2000;
   
   .static-image {
     width: 100%;

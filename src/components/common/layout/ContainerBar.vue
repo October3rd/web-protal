@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-09-28 15:51:13
- * @LastEditTime: 2020-10-09 15:35:25
+ * @LastEditTime: 2020-10-12 19:01:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \ls-web\src\components\common\layout\ContainerBar.vue
@@ -33,16 +33,19 @@ export default {
 <style lang="scss" scoped>
 .el-container {
   // 注意：calc函数中计算符号前后必须有空格
-  margin-left: calc(50% - 550px);
-  width: 1100px;
+  margin-left: calc(50% - 600px);
+  width: 1200px;
   .el-header {
+    padding: 0;
     height: auto !important;
     // background-color: rgba(232,242,246,0.5);
   }
-  // .el-main {
-  //   background-color: rgb(248, 226, 226);
-  // }
+  .el-main {
+    padding: 0;
+    // background-color: rgb(248, 226, 226);
+  }
   .el-footer {
+    padding: 0;
     height: auto !important;
     background-color: #b3c0d1;
   }
