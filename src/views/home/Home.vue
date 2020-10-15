@@ -31,6 +31,23 @@
         <!-- footer -->
         <template #footer>
           <!-- 页脚 -->
+          <el-row type="flex" justify="center">
+            <div class="footer">
+              <div >
+                本网站所有信息发布均须有信息发布主管部门进行保密审查(sdflkj 东风路科技分类考试的缴费单),大立科技是地方第三方了坚实的离开
+              </div>
+              <div>
+                本网站所有信息发布均须有信息发布主管部门进行保密审查(sdflkj 东风路科技分类考试的缴费单),大立科技是地方第三方了坚实的离开
+              </div>
+              <div>
+                本网站所有信息发布均须有信息发布主管部门进行保密审查(sdflkj 东风路科技分类考试的缴费单),大立科技是地方第三方了坚实的离开
+              </div>
+              <div>
+                本网站所有信息发布均须有信息发布主管部门进行保密审查(sdflkj 东风路科技分类考试的缴费单),大立科技是地方第三方了坚实的离开
+              </div>
+              
+            </div>
+          </el-row>
           <!-- <el-image :src="require('@/assets/ls.jpg')" lazy fit="fill"></el-image> -->
         </template>
       </container-bar>
@@ -49,7 +66,7 @@ import HeaderBar from 'components/common/layout/HeaderBar'
 import NavBar from 'components/common/navBar/NavBar'
 import BackTop from 'components/common/backTop/BackTop'
 
-import MenuBar from 'components/content/home/menu/MenuBar'
+import MenuBar from 'components/content/menu/MenuBar'
 import BackgroundView from 'views/home/components/BackgroundView'
 import TopBar from 'views/home/components/TopBar'
 import MainView from 'views/home/components/MainView'
@@ -152,16 +169,24 @@ export default {
   
   .main {
     .container {
-    background-color: rgba(255,255,255,1);
-    .header {
-      padding: 0;
-      margin-top: 60px;
-      font-size: 0;
-      .el-image {
-        width: 100%;
-        height: 140px;
+      background-color: rgba(255,255,255,1);
+
+      .header {
+        padding: 0;
+        margin-top: 60px;
+        font-size: 0;
+        .el-image {
+          width: 100%;
+          height: 140px;
+        }
       }
-    }
+
+      .footer {
+        margin: 10px;
+        font-size: 0.9rem;
+        line-height: 26px;
+        // color: ;
+      }
     }
     
   }

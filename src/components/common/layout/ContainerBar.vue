@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-09-28 15:51:13
- * @LastEditTime: 2020-10-12 19:01:35
+ * @LastEditTime: 2020-10-15 16:52:20
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \ls-web\src\components\common\layout\ContainerBar.vue
@@ -47,7 +47,7 @@ export default {
   .el-footer {
     padding: 0;
     height: auto !important;
-    background-color: #b3c0d1;
+    background-color:#75B9FF;
   }
 }
 </style>

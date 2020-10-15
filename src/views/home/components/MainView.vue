@@ -1,7 +1,7 @@
 <!--
  * @Author: lhj
  * @Date: 2020-10-12 20:11:35
- * @LastEditTime: 2020-10-15 16:31:16
+ * @LastEditTime: 2020-10-15 19:30:31
  * @LastEditors: Please set LastEditors
  * @Description: 卡片信息模块
  * @FilePath: \ls-web\src\views\home\components\MainView.vue
@@ -76,8 +76,8 @@
 
 <script>
 import MarqueeY from 'components/common/marquee/MarqueeY'
-import CardList from 'components/content/home/card/CardList'
-import CardListItem from 'components/content/home/card/CardListItem'
+import CardList from 'components/content/card/CardList'
+import CardListItem from 'components/content/card/CardListItem'
 import HotColumn from 'views/home/components/HotColumn'
  export default {
   name: 'MainView',
