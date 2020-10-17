@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-10-12 14:55:39
- * @LastEditTime: 2020-10-12 15:06:27
+ * @LastEditTime: 2020-10-17 10:08:34
  * @LastEditors: Please set LastEditors
  * @Description: 顶部导航条
  * @FilePath: \ls-web\src\views\home\components\TopBar.vue
@@ -13,7 +13,9 @@
               align="middle">
         <el-link type="warning"
                  :underline="false"
-                 style="margin: 0 20px; font-size:16px">常用网址:</el-link>
+                 @click="gotoSiteMap()"
+                 style="margin: 0 20px; font-size:16px">网址导航:</el-link>
+        <!-- <router-link to="/sitemap">网址导航:</router-link> -->
         <div v-for="(item, i) in linkInfos"
              :key="i">
           <el-link class="rlink-left"
@@ -88,6 +90,15 @@ export default {
       return function(name) {
         return require('assets/images/' + name)
       }
+    }
+  },
+  methods: {
+    gotoSiteMap() {
+      // const param = { name: 'SiteMap' }
+      const param = { path: '/sitemap' }
+      // console.log('this.$router.push(param)::: ', this.$router.push(param))
+      this.$router.push(param)
+      // this.$emit('goto', this.$router.push(param))
     }
   }
 }

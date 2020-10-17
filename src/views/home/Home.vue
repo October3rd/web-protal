@@ -3,7 +3,7 @@
     <!-- 背景图 -->
     <background-view />
     <!-- 导航 -->
-    <top-bar />
+    <top-bar @goto="gotoSiteMap"/>
     <div class="main">
       <!-- 主页 -->
       <container-bar class="container">
@@ -23,8 +23,9 @@
         <!-- main -->
         <template #main>
           <!-- <div style="height: 1500px;"> -->
-
-            <main-view />
+            <!-- <slot></slot>
+            <main-view /> -->
+            <router-view></router-view>
           <!-- </div> -->
           <!-- <card-list /> -->
         </template>
@@ -69,7 +70,7 @@ import BackTop from 'components/common/backTop/BackTop'
 import MenuBar from 'components/content/menu/MenuBar'
 import BackgroundView from 'views/home/components/BackgroundView'
 import TopBar from 'views/home/components/TopBar'
-import MainView from 'views/home/components/MainView'
+// import HomeView from 'views/home/components/HomeView'
 import AdvertsBar from 'views/home/components/AdvertsBar'
 
 export default {
@@ -83,7 +84,7 @@ export default {
     MenuBar,
     BackgroundView,
     TopBar,
-    MainView,
+    // HomeView,
     AdvertsBar
   },
   data() {
@@ -157,6 +158,11 @@ export default {
       return function(name) {
         return require('assets/images/' + name)
       }
+    }
+  },
+  methods: {
+    gotoSiteMap(value) {
+      console.log("value::: ", value)
     }
   }
   

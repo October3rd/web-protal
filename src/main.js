@@ -1,7 +1,7 @@
 /*
  * @Author: oct3rd
  * @Date: 2020-09-27 15:42:39
- * @LastEditTime: 2020-10-08 19:08:54
+ * @LastEditTime: 2020-10-17 08:48:41
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \ls-web\src\main.js
@@ -22,7 +22,7 @@ import './icons/iconfont/iconfont.css'
 
 Vue.use(ElementUI)
 Vue.config.productionTip = false
-
+// console.log('router::: ', router)
 new Vue({
   router,
   store,

@@ -1,14 +1,14 @@
 <!--
  * @Author: lhj
  * @Date: 2020-10-12 20:11:35
- * @LastEditTime: 2020-10-15 19:30:31
+ * @LastEditTime: 2020-10-16 16:32:47
  * @LastEditors: Please set LastEditors
  * @Description: 卡片信息模块
- * @FilePath: \ls-web\src\views\home\components\MainView.vue
+ * @FilePath: \ls-web\src\views\home\components\HomeView.vue
 -->
 <template>
   <div>
-    <el-row type="flex" justify="start" style="height: 310px">
+    <el-row type="flex" justify="start" style="height: 300px">
       <el-card class="card-carousel" shadow="hover">
         <el-carousel :autoplay="false">
           <el-carousel-item v-for="item in 4" :key="item">
@@ -27,7 +27,7 @@
         <marquee-y style="font-size: 16px" :send-val="sendVal" />
       </el-card>
     </el-row>
-    <el-row type="flex" justify="start" style="height: 310px">
+    <el-row type="flex" justify="start" style="height: 300px">
       <card-list>
         <hot-column style="width: 80%" :table-data="hotData" />
         <card-list-item v-for="(cardInfo, index) in cardInfosR2" :key="index" :card-info="cardInfo"/>
@@ -80,7 +80,7 @@ import CardList from 'components/content/card/CardList'
 import CardListItem from 'components/content/card/CardListItem'
 import HotColumn from 'views/home/components/HotColumn'
  export default {
-  name: 'MainView',
+  name: 'HomeView',
   components: {
     CardList,
     CardListItem,

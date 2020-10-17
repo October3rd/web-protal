@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-09-28 15:51:13
- * @LastEditTime: 2020-10-15 16:52:20
+ * @LastEditTime: 2020-10-16 08:57:51
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \ls-web\src\components\common\layout\ContainerBar.vue
@@ -42,6 +42,8 @@ export default {
   }
   .el-main {
     padding: 0;
+    width: 100%;
+    height: 100%;
     // background-color: rgb(248, 226, 226);
   }
   .el-footer {
