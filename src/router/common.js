@@ -1,7 +1,7 @@
 /*
  * @Author: lhj
  * @Date: 2020-10-16 14:53:34
- * @LastEditTime: 2020-10-17 10:16:08
+ * @LastEditTime: 2020-10-17 10:32:58
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \ls-web\src\router\common.js
@@ -23,7 +23,7 @@ const commonRouters = [
         component: HomeView
       },
     ]
-  },
+  }
 ]
 
 export default commonRouters
