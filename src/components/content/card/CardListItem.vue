@@ -1,7 +1,7 @@
 <!--
  * @Author: lhj
  * @Date: 2020-10-12 15:40:36
- * @LastEditTime: 2020-10-15 16:55:32
+ * @LastEditTime: 2020-10-19 16:07:39
  * @LastEditors: Please set LastEditors
  * @Description: 卡片单元
  * @FilePath: \ls-web\src\components\content\home\card\CardListItem.vue
@@ -15,7 +15,7 @@
     <table ref="table" style="width: 100%">
       <tr v-for="(msgInfo, index) in cardInfo.msgInfos" :key="index">
         <td class="content" @click="gotoDetail()">
-          ·
+          ●
           <span v-if="msgInfo.deptName" style="padding-right: 5px">[{{msgInfo.deptName}}]</span>
           {{ msgInfo.title }}
         </td>
@@ -58,8 +58,10 @@ export default {
       console.log('this.cardInifo.msgInfo.path::: ', this.cardInifo.msgInfo.path)
     },
     gotoDetail() {
-      const param = { path: '/' }
-      this.openTabs(param)
+      const param = { path: '/detail' }
+      this.$router.push(param)
+      // this.openTabs(param)
+
 
       // console.log('this.cardInfo.msgInfo.detailPath::: ', this.cardInfo.msgInfo.detailPath)
     },

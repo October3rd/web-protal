@@ -1,7 +1,7 @@
 <!--
  * @Author: lhj
  * @Date: 2020-10-12 14:43:45
- * @LastEditTime: 2020-10-12 15:59:24
+ * @LastEditTime: 2020-10-26 14:25:55
  * @LastEditors: Please set LastEditors
  * @Description: 背景图
  * @FilePath: \ls-web\src\views\home\components\BackgroundView.vue
@@ -14,7 +14,7 @@
 
 <script>
  export default {
-  name: 'BackgroundView',
+  name: 'Background',
   components: {
 
   },

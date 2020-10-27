@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!-- 背景图 -->
-    <background-view />
+    <background />
     <!-- 导航 -->
     <top-bar @goto="gotoSiteMap"/>
     <div class="main">
@@ -68,10 +68,10 @@ import NavBar from 'components/common/navBar/NavBar'
 import BackTop from 'components/common/backTop/BackTop'
 
 import MenuBar from 'components/content/menu/MenuBar'
-import BackgroundView from 'views/home/components/BackgroundView'
-import TopBar from 'views/home/components/TopBar'
+import Background from 'views/home/components/background/Background'
+import TopBar from 'views/home/components/topbar/TopBar'
 // import HomeView from 'views/home/components/HomeView'
-import AdvertsBar from 'views/home/components/AdvertsBar'
+import AdvertsBar from 'views/home/components/advertbar/AdvertsBar'
 
 export default {
   name: 'Home',
@@ -82,7 +82,7 @@ export default {
     BackTop,
 
     MenuBar,
-    BackgroundView,
+    Background,
     TopBar,
     // HomeView,
     AdvertsBar

@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-10-15 09:06:23
- * @LastEditTime: 2020-10-15 14:38:53
+ * @LastEditTime: 2020-10-26 16:40:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \ls-web\src\views\home\components\HotColumn.vue
@@ -15,11 +15,11 @@
     </div>
     <table style="width: 100%">
       <tr v-for="(item, index) in tableData" :key="index">
-        <td :class="{ hot: item.col_1.isHot }">· {{ item.col_1.title }}</td>
-        <td :class="{ hot: item.col_2.isHot }">· {{ item.col_2.title  }}</td>
+        <td :class="{ hot: item.col_1.isHot }" @click="gotoDetail(item.hotURL)">● {{ item.col_1.title }}</td>
+        <td :class="{ hot: item.col_2.isHot }" @click="gotoDetail(item.hotURL)">● {{ item.col_2.title  }}</td>
       </tr>
       <tr>
-        <td> · 全家福 </td>
+        <td> ● 全家福 </td>
       </tr>
     </table>
   </el-card>
@@ -44,6 +44,15 @@
 
    }
   },
+  methods: {
+    gotoDetail(url) {
+      console.log('gotoDetail>>url::: ', url)
+    },
+
+    gotoMore(url) {
+      console.log('gotoMore>>url::: ', url)
+    }
+  }
  }
 </script>
 

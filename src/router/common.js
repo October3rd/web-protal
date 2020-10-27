@@ -1,9 +1,9 @@
 /*
  * @Author: lhj
  * @Date: 2020-10-16 14:53:34
- * @LastEditTime: 2020-10-17 10:32:58
+ * @LastEditTime: 2020-10-19 08:42:55
  * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
+ * @Description: 通用页面
  * @FilePath: \ls-web\src\router\common.js
  */
 
@@ -23,6 +23,12 @@ const commonRouters = [
         component: HomeView
       },
     ]
+  },
+  {
+    path: '/404',
+    components: {
+      
+    }
   }
 ]
 

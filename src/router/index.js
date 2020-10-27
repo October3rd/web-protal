@@ -1,7 +1,7 @@
 /*
  * @Author: oct3rd
  * @Date: 2020-09-27 15:42:39
- * @LastEditTime: 2020-10-17 11:06:58
+ * @LastEditTime: 2020-10-19 08:39:22
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \ls-web\src\router\index.js
@@ -23,11 +23,12 @@ VueRouter.prototype.push = function push(location) {
 Vue.use(VueRouter)
 
 // const Page404 = () => import("views/404");
-console.log('moduleRouters::: ', moduleRouters)
 // 2.使用路由
 const routes = [
   ...commonRouters,
   ...moduleRouters,
+  // 404 页面必须放置在所有路由最后
+  { path: '*', redirect: '/404', hidden: true }
 ]
 
 console.log('routes::: ', routes)

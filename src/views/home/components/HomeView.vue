@@ -1,14 +1,14 @@
 <!--
  * @Author: lhj
  * @Date: 2020-10-12 20:11:35
- * @LastEditTime: 2020-10-16 16:32:47
+ * @LastEditTime: 2020-10-26 16:25:56
  * @LastEditors: Please set LastEditors
  * @Description: 卡片信息模块
  * @FilePath: \ls-web\src\views\home\components\HomeView.vue
 -->
 <template>
   <div>
-    <el-row type="flex" justify="start" style="height: 300px">
+    <el-row type="flex" justify="start" style="height: 310px">
       <el-card class="card-carousel" shadow="hover">
         <el-carousel :autoplay="false">
           <el-carousel-item v-for="item in 4" :key="item">
@@ -21,13 +21,13 @@
       </card-list>
       <el-card class="card-carousel" style="width: 23%" shadow="hover">
         <div slot="header" class="clearfix">
-          <b>快讯</b>
+          <b>每日快讯</b>
           <el-button style="float: right; padding: 3px 0" type="text" @click="gotoMore()">MORE>></el-button>
         </div>
         <marquee-y style="font-size: 16px" :send-val="sendVal" />
       </el-card>
     </el-row>
-    <el-row type="flex" justify="start" style="height: 300px">
+    <el-row type="flex" justify="start" style="height: 310px">
       <card-list>
         <hot-column style="width: 80%" :table-data="hotData" />
         <card-list-item v-for="(cardInfo, index) in cardInfosR2" :key="index" :card-info="cardInfo"/>
@@ -78,7 +78,7 @@
 import MarqueeY from 'components/common/marquee/MarqueeY'
 import CardList from 'components/content/card/CardList'
 import CardListItem from 'components/content/card/CardListItem'
-import HotColumn from 'views/home/components/HotColumn'
+import HotColumn from 'views/home/components/hotcolumn/HotColumn'
  export default {
   name: 'HomeView',
   components: {
