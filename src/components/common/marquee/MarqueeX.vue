@@ -1,7 +1,7 @@
 <!--
  * @Author: lhj
  * @Date: 2020-10-09 15:59:54
- * @LastEditTime: 2020-10-28 14:22:51
+ * @LastEditTime: 2020-10-28 14:25:06
  * @LastEditors: Please set LastEditors
  * @Description: 左右文字跑马灯（marquee）
  * @FilePath: \ls-web\src\components\common\marquee\MarqueeX.vue
@@ -62,7 +62,6 @@ export default {
     this.$nextTick(() => {
       const items = this.$refs.showList
       const arr = []
-      console.log('watch items', items)
       // 因为设置的margin值一样，所以取第一个就行。
       const margin = this.getMargin(items[0])
       items.forEach(item => {
