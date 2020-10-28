@@ -1,7 +1,7 @@
 <!--
  * @Author: lhj
  * @Date: 2020-10-09 15:59:54
- * @LastEditTime: 2020-10-12 15:36:10
+ * @LastEditTime: 2020-10-28 14:22:51
  * @LastEditors: Please set LastEditors
  * @Description: 左右文字跑马灯（marquee）
  * @FilePath: \ls-web\src\components\common\marquee\MarqueeX.vue
@@ -53,21 +53,25 @@ export default {
       inBox: null,
       outBox: null,
       // 每一个内容的宽度
-      disArr: []
+      disArr: [],
+      showVal: []
     }
   },
   mounted () {
     // 获取样式对象（内容列表数组）
-    const items = this.$refs.showList
-    const arr = []
-    // 因为设置的margin值一样，所以取第一个就行。
-    const margin = this.getMargin(items[0])
-    items.forEach(item => {
-      // 把宽度和 margin 加起来就是每一个元素需要移动的距离
-      arr.push(item.clientWidth + margin)
+    this.$nextTick(() => {
+      const items = this.$refs.showList
+      const arr = []
+      console.log('watch items', items)
+      // 因为设置的margin值一样，所以取第一个就行。
+      const margin = this.getMargin(items[0])
+      items.forEach(item => {
+        // 把宽度和 margin 加起来就是每一个元素需要移动的距离
+        arr.push(item.clientWidth + margin)
+      })
+      this.disArr = arr
+      this.initMove()
     })
-    this.disArr = arr
-    this.initMove()
   },
   beforeDestroy () {
     // 页面关闭清除定时器
@@ -125,6 +129,10 @@ export default {
         this.moveLeft()
       }, this.speed)
     }
+
+    // loop(args) {
+    //   if (args > 0) return true
+    // }
   }
 }
 </script>
