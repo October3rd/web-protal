@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-10-12 14:55:39
- * @LastEditTime: 2020-10-17 10:08:34
+ * @LastEditTime: 2020-10-30 14:01:19
  * @LastEditors: Please set LastEditors
  * @Description: 顶部导航条
  * @FilePath: \ls-web\src\views\home\components\TopBar.vue
@@ -20,7 +20,7 @@
              :key="i">
           <el-link class="rlink-left"
                    type="primary"
-                   :href="item.href">
+                   :href="item.href" target="_blank">
             <img class="logo-left"
                  :src="getImage(item.icon)" />{{item.name}}
           </el-link>
@@ -52,6 +52,9 @@ import Login from 'components/common/login/Login'
 import SingleSearch from 'components/common/search/SingleSearch'
 import MarqueeX from 'components/common/marquee/MarqueeX'
 
+// api
+import { getFrenquenceLink } from '@/api/links/links.js'
+import { getMarqueeXAdvertNews } from '@/api/marquee/marqueeX.js'
 
 export default {
   name: 'TopBar',
@@ -64,25 +67,31 @@ export default {
   data() {
     return {
       // 常用导航
-      linkInfos: [{ href: 'http://www.baidu.com', name: '总行', icon: 'logo.png' }, 
-      { href: 'http://www.baidu.com', name: '省行', icon: 'logo.png' }],
+      linkInfos: [],
        // 滚动字幕
-      sendVal: [{ content: '来自东莞市的', url: 'http://www.baidu.com' },
-            { content: '来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的', url: 'http://www.baidu.com' },
-            { content: '来自常州市的', url: 'http://www.baidu.com' },
-            { content: '来自金华市的', url: 'http://www.baidu.com' },
-            { content: '来自贵阳市的', url: 'http://www.baidu.com' },
-            { content: '来自长春市的', url: 'http://www.baidu.com' },
-            { content: '来自泉州市的', url: 'http://www.baidu.com' },
-            { content: '来自南昌市的', url: 'http://www.baidu.com' },
-            { content: '来自南京市的', url: 'http://www.baidu.com' },
-            { content: '来自天津市的', url: 'http://www.baidu.com' },
-            { content: '来自宁波市的', url: 'http://www.baidu.com' },
-            { content: '来自嘉兴市的', url: 'http://www.baidu.com' },
-            { content: '来自长沙市的', url: 'http://www.baidu.com' },
-            { content: '来自济南市的', url: 'http://www.baidu.com' },
-            { content: '来自杭州市的', url: 'http://www.baidu.com' }]
+      sendVal: [],
+      // [{ content: '来自东莞市的', url: 'http://www.baidu.com' },]
+      //       { content: '来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的来自太原市的', url: 'http://www.baidu.com' },
+      //       { content: '来自常州市的', url: 'http://www.baidu.com' },
+      //       { content: '来自金华市的', url: 'http://www.baidu.com' }, 
+      //       { content: '来自济南市的', url: 'http://www.baidu.com' },
+      //       { content: '来自杭州市的', url: 'http://www.baidu.com' }]
     }
+  },
+  created () {
+    
+    // 导航链接
+    getFrenquenceLink().then(res => {
+      // console.log('res::: ', res.data)
+      this.linkInfos = res.data
+    })
+    // 横向滚动条
+    getMarqueeXAdvertNews().then(res => {
+      this.sendVal = res.data
+    })
+  },
+  mounted () {
+    console.log('top-bar mouted')
   },
   computed: {
     // 获取图片资源
@@ -99,7 +108,7 @@ export default {
       // console.log('this.$router.push(param)::: ', this.$router.push(param))
       this.$router.push(param)
       // this.$emit('goto', this.$router.push(param))
-    }
+    },
   }
 }
 </script>

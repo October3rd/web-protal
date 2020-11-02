@@ -1,7 +1,7 @@
 <!--
  * @Author: lhj
  * @Date: 2020-10-12 15:40:36
- * @LastEditTime: 2020-10-19 16:07:39
+ * @LastEditTime: 2020-10-31 19:22:49
  * @LastEditors: Please set LastEditors
  * @Description: 卡片单元
  * @FilePath: \ls-web\src\components\content\home\card\CardListItem.vue
@@ -14,12 +14,12 @@
     </div>
     <table ref="table" style="width: 100%">
       <tr v-for="(msgInfo, index) in cardInfo.msgInfos" :key="index">
-        <td class="content" @click="gotoDetail()">
+        <td class="content" @click="gotoDetail(msgInfo.detailPath)">
           ●
           <span v-if="msgInfo.deptName" style="padding-right: 5px">[{{msgInfo.deptName}}]</span>
           {{ msgInfo.title }}
         </td>
-        <td style="width: 25%; text-align:right; padding-right: 10px">
+        <td style="width: 100px; text-align:right; padding-right: 5px">
           <span class="editor">
             {{ msgInfo.editDate }}
           </span>
@@ -55,15 +55,15 @@ export default {
   },
   methods: {
     gotoMore() {
-      console.log('this.cardInifo.msgInfo.path::: ', this.cardInifo.msgInfo.path)
+      console.log('this.cardInifo.msgInfo.path::: ', this.cardInfo.morePath)
     },
-    gotoDetail() {
-      const param = { path: '/detail' }
-      this.$router.push(param)
+    gotoDetail(url) {
+      // const param = { path: '/detail' }
+      // this.$router.push(param)
       // this.openTabs(param)
 
 
-      // console.log('this.cardInfo.msgInfo.detailPath::: ', this.cardInfo.msgInfo.detailPath)
+      console.log('this.cardInfo.msgInfo.detailPath::: ', url)
     },
     openTabs(to) {
       const routeURL = this.$router.resolve({ path: to.path, query: to.query })
@@ -101,7 +101,7 @@ export default {
     line-height: 26px;
 
     .content {
-      width: 75%;
+      width: calc(100% - 100px);
       word-break:keep-all;  /* 不换行 */
       white-space:nowrap; /* 不换行 */
       overflow:hidden;  /* 内容超出宽度时隐藏超出部分的内容 */

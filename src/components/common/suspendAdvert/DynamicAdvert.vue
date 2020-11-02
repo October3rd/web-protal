@@ -1,31 +1,27 @@
 <!--
  * @Author: lhj
  * @Date: 2020-10-05 12:39:32
- * @LastEditTime: 2020-10-30 09:11:54
+ * @LastEditTime: 2020-10-31 17:37:23
  * @LastEditors: Please set LastEditors
  * @Description: 动态悬浮碰撞广告效果
  * @FilePath: \ls-web\src\components\common\suspendAdvert\DynamicAdvert.vue
 -->
 
 <template>
-  <div v-if="imageURL" class="dynamic-advert" ref="dynamicAdvert" @mouseenter="mouseOver" @mouseleave="mouseLeave">
-      <router-link :to="url" target="_blank"><img class="dynamic-image" :src="getImage(imageURL)" alt="" /></router-link>
+  <div v-if="pic" class="dynamic-advert" ref="dynamicAdvert" @mouseenter="mouseOver" @mouseleave="mouseLeave">
+      <router-link :to="url" target="_blank"><img class="dynamic-image" :src="getImage(pic)" alt="" /></router-link>
       <a class="close-btn" href="javascript:;" @click.stop="closeView">☒</a>
   </div>
 </template>
 
 <script>
-import { getDynamicAdvertImage } from '@/api/images/advertImages.js'
 export default {
   name: 'DynamicAdvert',
   components: {},
   props: {
-    src: {
+    fileName: {
       type: String,
       default: ''
-      // default: function () {// dynamicAdvert
-      //   return require('@/assets/images/dynamicAdvert.jpg')
-      // }
     },
     stepx: {
       type: Number,
@@ -58,15 +54,8 @@ export default {
       stepX: this.stepx,
       stepY: this.stepy,
       interval: null,
-      imageURL: this.src
+      pic: ''
     }
-  },
-  created () {
-    getDynamicAdvertImage()
-      .then(res => {
-        console.log('created ---getDynamicAdvertImage>>', res.data)
-        this.imageURL = res.data.imageInfo.fileName
-      })
   },
   watch: {
     clientW(newVal, oldVal) {
@@ -74,6 +63,9 @@ export default {
     },
     clientH(newVal, oldVal) {
       this.clientH = newVal
+    },
+    fileName(val) {
+      this.pic = val
     }
   },
   computed: {
@@ -99,7 +91,6 @@ export default {
       this.move()
     }, this.speed)
   },
-
   beforeDestroy () {
     // 页面关闭清除定时器
     clearInterval(this.interval)
@@ -169,7 +160,7 @@ export default {
 .dynamic-advert {
     position: fixed;
     left: 0px;
-    top: 50px;
+    top: 60px;
     width: 220px;
     height: 120px;
     z-index: 2001;

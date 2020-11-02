@@ -1,20 +1,20 @@
 <!--
  * @Author: your name
  * @Date: 2020-10-05 12:40:28
- * @LastEditTime: 2020-10-13 10:04:49
+ * @LastEditTime: 2020-10-30 12:16:28
  * @LastEditors: Please set LastEditors
  * @Description: 静态广告
  * @FilePath: \ls-web\src\components\common\suspendAdvert\StaticAdvert.vue
 -->
 <template>
-  <div class="static-advert" ref="staticAdvert">
+  <div v-if="pic" class="static-advert" ref="staticAdvert">
       <a class="close-btn" href="javascript:;" style="font-size: 12px" @click.stop="closeView">关闭</a>
-      <router-link :to="url" target="_blank"><img class="static-image" :src="src" alt=""></router-link>
+      <router-link :to="url" target="_blank"><img class="static-image" :src="getImage(pic)" alt=""></router-link>
   </div>
 </template>
 
 <script>
- export default {
+export default {
   name: 'StaticAdvert',
   components: {},
   props: {
@@ -22,11 +22,9 @@
       type: String,
       default: 'left'
     },
-    src: {
+    fileName: {
       type: String,
-      default: function() {
-          return require('@/assets/images/staticAdvert.jpg')
-      } 
+      default: ''
     },
     url: {
         type: Object,
@@ -36,18 +34,12 @@
     }
   },
   data () {
-   return {
-     clientW: ''
-   }
-  },
-  watch: {
-    clientW(newVal, oldVal) {
-      if (this.direction === 'right') {
-        this.getPosX()
-      }
+    return {
+      clientW: '',
+      pic: ''
     }
   },
-  mounted () {
+  updated () {
       this.clientW = document.documentElement.clientWidth
       const that = this
       // 重新计算浏览器窗口宽高
@@ -60,6 +52,24 @@
       this.getPosX()
     }
   },
+  computed: {
+    getImage() {
+      return function(name) {
+        return require('assets/images/' + name)
+      }
+    }
+  },
+  watch: {
+    clientW(newVal, oldVal) {
+      if (this.direction === 'right') {
+        this.getPosX()
+      }
+    },
+    fileName(val) {
+      this.pic = val
+    }
+  },
+  
   methods: {
     getPosX() {
       const advertObj = this.$refs.staticAdvert
@@ -74,7 +84,7 @@
       advertObj.style.display = 'none'
     }
   }
- }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -87,7 +97,7 @@
   
   .static-image {
     width: 100%;
-    height: 256px;
+    height: 200px;
   }
 }
  

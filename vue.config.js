@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-09-27 16:01:51
- * @LastEditTime: 2020-10-27 15:42:52
+ * @LastEditTime: 2020-10-27 21:03:25
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \ls-web\vue.config.js
@@ -61,19 +61,20 @@ module.exports = {
          * 在开发环境中 如果你的请求是localhost:8001/api/，
          * 则将localhost:8001/api/代理访问到http://127.0.0.1:8001/mock
          */
-        target: process.env.VUE_APP_BASE_HOST,
+        target: process.env.VUE_APP_BASE_HOST, // 代理地址，这里设置的地址会代替axios中设置的baseURL
         changeOrigin: true, // 允许跨域
         pathRewrite: {
           /**
            * 请求登录接口/login,就会请求ocalhost:8001/api/login,即省略/api
            */
           ['^' + process.env.VUE_APP_BASE_API]: ''
+          // '^/api': ''
         }
       }
     }
     
   },
-
+  
   configureWebpack: {
     resolve: {
       alias: {
@@ -104,5 +105,6 @@ module.exports = {
         return args
       })
   }
-
 }
+
+// console.log('module.exports::: ', module.exports.proxy)

@@ -73,6 +73,9 @@ import TopBar from 'views/home/components/topbar/TopBar'
 // import HomeView from 'views/home/components/HomeView'
 import AdvertsBar from 'views/home/components/advertbar/AdvertsBar'
 
+// api
+import { getHomeMenu } from '@/api/menus/menus.js'
+
 export default {
   name: 'Home',
   components: {
@@ -92,65 +95,17 @@ export default {
       input: '',
       // staticAdURL: { path: '/test' },
       // 通过API调用获取菜单树
-      menus: [
-        {
-          menuCode: '01',
-          menuName: '网站首页',
-          children: [
-            { menuCode: '11', menuName: '选项1' },
-            { menuCode: '12', menuName: '选项2' },
-            { menuCode: '13', menuName: '选项3' }
-          ],
-          level: '1'
-        },
-        {
-          menuCode: '2',
-          menuName: '公文系统',
-          children: [
-            { menuCode: '21', menuName: '选项1' },
-            { menuCode: '22', menuName: '选项2' },
-            { menuCode: '23', menuName: '选项3' }
-          ]
-        },
-        {
-          menuCode: '3',
-          menuName: '部门链接',
-          children: [
-            { menuCode: '31', menuName: '选项1' },
-            { menuCode: '32', menuName: '选项2' },
-            { menuCode: '33', menuName: '选项3' },
-            {
-              menuCode: '34',
-              menuName: '选项4',
-              children: [
-                { menuCode: '341', menuName: '选项41' },
-                { menuCode: '342', menuName: '选项42' }
-              ]
-            }
-          ]
-        },
-        {
-          menuCode: '4',
-          menuName: '特色系统'
-        },
-        {
-          menuCode: '5',
-          menuName: '省行链接'
-        },
-        {
-          menuCode: '6',
-          menuName: '总行链接'
-        },
-        {
-          menuCode: '7',
-          menuName: '数据通报'
-        },
-        {
-          menuCode: '8',
-          menuName: '通讯录'
-        }
-      ],
+      menus: []
     }
+  },
+  mounted () {
+    this.$nextTick(() => {
+  getHomeMenu().then(res => {
+        // console.log('getHomeMenus>>>', res.data.menus)
+        this.menus = res.data.menus
+        // console.log('this.menus>>>', this.menus)
+      })
+    })
   },
   computed: {
     // 获取图片资源
@@ -162,7 +117,7 @@ export default {
   },
   methods: {
     gotoSiteMap(value) {
-      console.log("value::: ", value)
+      console.log('value::: ', value)
     }
   }
   

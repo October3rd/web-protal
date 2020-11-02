@@ -1,7 +1,7 @@
 <!--
  * @Author: lhj
  * @Date: 2020-10-09 15:59:54
- * @LastEditTime: 2020-10-30 09:16:55
+ * @LastEditTime: 2020-10-30 09:34:14
  * @LastEditors: Please set LastEditors
  * @Description: 左右文字跑马灯（marquee）
  * @FilePath: \ls-web\src\components\common\marquee\MarqueeX.vue
@@ -53,8 +53,7 @@ export default {
       inBox: null,
       outBox: null,
       // 每一个内容的宽度
-      disArr: [],
-      showVal: []
+      disArr: []
     }
   },
   updated () {

@@ -10,7 +10,7 @@ const service = originAxios.create({
   timeout: 10000
   // headers: ''
 })
-
+// console.log('service.baseURL::: ', service)
 // 添加请求拦截器
 service.interceptors.request.use(config => {
     // 在发送之前做点什么
@@ -22,8 +22,9 @@ service.interceptors.request.use(config => {
      */
     console.log('来到request拦截sucess中')
     // 参数序列化
+    // config.url = service.baseURL + config.url
     config.data = QS.stringify(config.data)
-    console.log('request config::: ', config)
+    // console.log('request config::: ', config)
     return config
   }, 
   error => {
@@ -37,7 +38,7 @@ service.interceptors.request.use(config => {
 service.interceptors.response.use(res => {
     // 在发送之前做点什么
     console.log('来到了response拦截sucess中')
-    console.log('response res::: ', res)
+    // console.log('response res::: ', res)
     return res.data
   },
   error => {

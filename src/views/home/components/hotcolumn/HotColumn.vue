@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-10-15 09:06:23
- * @LastEditTime: 2020-10-26 16:40:54
+ * @LastEditTime: 2020-10-31 13:16:19
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \ls-web\src\views\home\components\HotColumn.vue
@@ -13,36 +13,57 @@
       <b>热点专栏</b>
       <el-button style="float: right; padding: 3px 0" type="text" @click="gotoMore()">MORE>></el-button>
     </div>
-    <table style="width: 100%">
-      <tr v-for="(item, index) in tableData" :key="index">
-        <td :class="{ hot: item.col_1.isHot }" @click="gotoDetail(item.hotURL)">● {{ item.col_1.title }}</td>
-        <td :class="{ hot: item.col_2.isHot }" @click="gotoDetail(item.hotURL)">● {{ item.col_2.title  }}</td>
-      </tr>
-      <tr>
-        <td> ● 全家福 </td>
-      </tr>
-    </table>
+    <el-row type="flex" >
+      <el-col :span="12">
+        <table style="width: 100%">
+          <tr v-for="(item, index) in oddArr" :key="index">
+            <td :class="{ hot: item.isHot }" @click="gotoDetail(item.hotURL)">● {{ item.title }}</td>
+          </tr>
+        </table>
+      </el-col>
+      <el-col :span="12">
+        <table style="width: 100%">
+          <tr v-for="(item, index) in evenArr" :key="index">
+            <td :class="{ hot: item.isHot }" @click="gotoDetail(item.hotURL)">● {{ item.title }}</td>
+          </tr>
+        </table>
+      </el-col>
+    </el-row>
   </el-card>
 </template>
 
 <script>
- export default {
+import { getHotNews } from '@/api/cards/homeCards.js'
+
+export default {
   name: 'HotColumn',
   components: {
 
   },
-  props: {
-    tableData: {
-      type: Array,
-      default: function() {
-        return []
-      }
-    }
-  },
   data () {
    return {
-
+     oddArr: [],
+     evenArr: []
    }
+  },
+  created () {
+    getHotNews().then(res => {
+      const originArr = res.data.hotInfos
+       this.oddArr = originArr.filter((item, index) => {
+        if (index % 2 === 0) {
+          return item
+        }
+      })
+      this.evenArr = originArr.filter((item, index) => {
+        if (index % 2 === 1) {
+          return item
+        }
+      })
+      
+    })
+  },
+  computed: {
+   
   },
   methods: {
     gotoDetail(url) {
@@ -53,7 +74,7 @@
       console.log('gotoMore>>url::: ', url)
     }
   }
- }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -106,6 +127,7 @@
     }
     // color:#72B6FC;
   }
+ 
 }
  
 </style>

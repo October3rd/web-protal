@@ -1,16 +1,16 @@
 <!--
  * @Author: lhj
  * @Date: 2020-10-05 08:50:32
- * @LastEditTime: 2020-10-09 15:30:14
+ * @LastEditTime: 2020-10-29 11:08:19
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \ls-web\src\components\content\home\MenuItem.vue
 -->
 <template>
   <div class="menu-item">
-    <el-menu-item v-if="!hasChild" :index="menuData.menuCode">{{ menuData.menuName }}</el-menu-item>
-    <el-submenu v-if="hasChild" :index="menuData.menuCode">
-      <template slot="title">{{ menuData.menuName }}</template>
+    <el-menu-item v-if="!hasChild" :index="menuData.id">{{ menuData.title }}</el-menu-item>
+    <el-submenu v-if="hasChild" :index="menuData.id" >
+      <template slot="title">{{ menuData.title }}</template>
       <menu-item v-for="(item, index) in menuData.children" :key="index" :menuData="item"></menu-item>
     </el-submenu>
   </div>

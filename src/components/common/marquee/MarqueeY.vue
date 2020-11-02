@@ -1,7 +1,7 @@
 <!--
  * @Author: lhj
  * @Date: 2020-10-10 22:20:53
- * @LastEditTime: 2020-10-28 14:24:12
+ * @LastEditTime: 2020-10-30 09:48:08
  * @LastEditors: Please set LastEditors
  * @Description: 上下文字跑马灯（marquee）
  * @FilePath: \ls-web\src\components\common\marquee\MarqueeY.vue
@@ -21,7 +21,7 @@
           <span v-else class="content">
             {{index+1}}.{{item.content}} 
             <i v-if="item.deptName && item.editor">
-              <br/> {{item.editor}}({{item.deptName}})
+              <br/> {{item.editor}}  ({{item.deptName}})
             </i>
           </span>
         </div>
@@ -68,21 +68,20 @@ export default {
       disArr: []
     }
   },
-  mounted () {
-    this.$nextTick(() => {
-      // 获取样式对象（内容列表数组）
-      const items = this.$refs.showList
-      const arr = []
-      // 因为设置的margin值一样，所以取第一个就行。
-      // const margin = this.getMargin(items[0])
-      items.forEach(item => {
-        // 把宽度和 margin 加起来就是每一个元素需要移动的距离
-        arr.push(item.clientHeight)
-      })
-      this.disArr = arr
-      this.initMove()
+  updated () {
+    // 获取样式对象（内容列表数组）
+    const items = this.$refs.showList
+    const arr = []
+    // 因为设置的margin值一样，所以取第一个就行。
+    // const margin = this.getMargin(items[0])
+    items.forEach(item => {
+      // 把宽度和 margin 加起来就是每一个元素需要移动的距离
+      arr.push(item.clientHeight)
     })
+    this.disArr = arr
+    this.initMove()
   },
+  
   beforeDestroy () {
     // 页面关闭清除定时器
     clearInterval(this.nowTime)
