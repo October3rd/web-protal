@@ -7,7 +7,7 @@ function homeMenu(request) {
           id: '001',
           parent: '000',
           title: '网站首页',
-          path: '/xxx/xx/001', 
+          path: '/index', 
           flag: 0
       },
       {
@@ -18,49 +18,49 @@ function homeMenu(request) {
           flag: 1
       },
       {
-          id: '003',
-          title: '部门链接',
+        id: '003',
+        title: '综合服务平台', 
+        path: 'http://www.baidu.com',
+        flag: 1,
+        parent: '000' 
+      },
+      {
+          id: '004',
+          title: '部门主页',
           flag: 0,
           parent: '000',
           children: [
-              { id: '003001', title: '选项1', path: '/xxx/xx/xx', parent: '003', flag: 0 },
-              { id: '003002', title: '选项2', path: '/xxx/xx/xx', parent: '003', flag: 0 },
-              { id: '003003', title: '选项3', path: '/xxx/xx/xx', parent: '003', flag: 0 },
+              { id: '004001', title: '选项1', path: '/xxx/xx/xx', parent: '004', flag: 0 },
+              { id: '004002', title: '选项2', path: '/xxx/xx/xx', parent: '004', flag: 0 },
+              { id: '004003', title: '选项3', path: '/xxx/xx/xx', parent: '004', flag: 0 },
               {
-                  id: '003004',
+                  id: '004004',
                   title: '选项4',
-                  parent: '003',
+                  parent: '004',
                   children: [
-                      { id: '003004001', title: '选项41', path: '/xxx/xx/xx', parent: '003004', flag: 0 },
-                      { id: '003004002', title: '选项42', path: '/xxx/xx/xx', parent: '003004', flag: 0 }
+                      { id: '004004001', title: '选项41', path: '/xxx/xx/xx', parent: '004004', flag: 0 },
+                      { id: '004004002', title: '选项42', path: '/xxx/xx/xx', parent: '004004', flag: 0 }
                   ]
               }
           ]
       },
       {
-          id: '004',
-          title: '特色系统', 
-          path: 'http://www.baidu.com',
-          flag: 1,
-          parent: '000' 
-      },
-      {
           id: '005',
-          title: '省行链接', 
+          title: '数据平台', 
           path: 'http://www.baidu.com',
           flag: 1,
           parent: '000' 
       },
       {
           id: '006',
-          title: '总行链接',
+          title: '省行系统', 
           path: 'http://www.baidu.com',
           flag: 1,
           parent: '000' 
       },
       {
           id: '007',
-          title: '数据通报', 
+          title: '总行系统',
           path: 'http://www.baidu.com',
           flag: 1,
           parent: '000' 

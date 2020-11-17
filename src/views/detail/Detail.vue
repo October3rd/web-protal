@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-10-19 15:13:36
- * @LastEditTime: 2020-10-20 08:31:21
+ * @LastEditTime: 2020-11-02 20:13:49
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \ls-web\src\views\detail\Detail.vue
@@ -10,10 +10,10 @@
   <div class="detail">
     <bread-crumb-bar :bread-crumb-info="breadCrumbInfo" />
     <el-container>
-      <el-aside v-if="true" width="256px">
+      <el-aside v-if="false" width="256px">
         <el-menu>
           <el-row type="flex" justify="center">
-            <b style="line-height: 56px; font-size:18px;">东风路科东风路科技戮空间</b>
+            <b style="line-height: 56px; font-size:18px;"></b>
           </el-row>
           <menu-item v-for="(menuItem, index) in menus" :key="index" :menu-data="menuItem"></menu-item>
         </el-menu>
@@ -38,28 +38,7 @@ export default {
    return {
      mode: 'vertical',
      breadCrumbInfo: [{ navPath: { path: '/' }, navTitle: '首页' }, { navPath: '', navTitle: '部门主页' }],
-     menus: [
-        {
-          menuCode: '01',
-          menuName: '网站首页',
-          children: [
-            { menuCode: '11', menuName: '选项1' },
-            { menuCode: '12', menuName: '选项2' },
-            { menuCode: '13', menuName: '选项3' }
-          ],
-          level: '1'
-        },
-        {
-          menuCode: '2',
-          menuName: '公文系统',
-          children: [
-            { menuCode: '21', menuName: '选项1' },
-            { menuCode: '22', menuName: '选项2' },
-            { menuCode: '23', menuName: '选项3' }
-          ],
-          level: '2'
-        }
-      ]
+     menus: []
    }
   },
 }

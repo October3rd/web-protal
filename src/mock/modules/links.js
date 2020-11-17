@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-26 20:33:49
- * @LastEditTime: 2020-10-28 15:58:00
+ * @LastEditTime: 2020-11-02 09:45:44
  * @LastEditors: Please set LastEditors
  * @Description: 快捷链接模拟
  * @FilePath: \ls-web\src\mock\modules\links.js
@@ -28,7 +28,138 @@ function frequenceLink(request) {
   }
 }
 
+function cityBranch(request) {
+  const len = Random.natural(5, 30)
+  const cityInfos = []
+  for (let index = 0; index < len; index++) {
+    const title = Random.cword(3, 10)
+    const path = Random.url()
+    const flag = Random.boolean()
+
+    cityInfos.push({
+      title,
+      path,
+      flag
+    })
+  }
+
+  return {
+    code: 200,
+    data: cityInfos
+  }
+}
+
+function broCityBranch(request) {
+  const len = 10
+  const broCityInfos = []
+  for (let index = 0; index < len; index++) {
+    const title = Random.cword(3, 10)    
+    const path = Random.url()
+    const flag = Random.boolean()
+
+    broCityInfos.push({
+      title, 
+      path, 
+      flag
+    })
+  }
+
+  return {
+    code: 200, 
+    data: broCityInfos
+  }
+}
+
+function provBranch(request) {
+  const len = Random.natural(5, 30)
+  const provInfos = []
+  for (let index = 0; index < len; index++) {
+    const title = Random.cword(3, 10)
+    const path = Random.url()
+    const flag = Random.boolean()
+
+    provInfos.push({
+      title,
+      path,
+      flag
+    })
+  }
+
+  return {
+    code: 200,
+    data: provInfos
+  }
+}
+
+function headOffice(request) {
+  const len = Random.natural(5, 30)
+  const headOfficeInfos = []
+  for (let index = 0; index < len; index++) {
+    const title = Random.cword(3, 10)
+    const path = Random.url()
+    const flag = Random.boolean()
+
+    headOfficeInfos.push({
+      title,
+      path,
+      flag
+    })
+  }
+
+  return {
+    code: 200,
+    data: headOfficeInfos
+  }
+}
+
+function software(request) {
+  const len = Random.natural(5, 30)
+  const softwareInfos = []
+  for (let index = 0; index < len; index++) {
+    const title = Random.cword(3, 10)
+    const path = Random.url()
+    const flag = Random.boolean()
+
+    softwareInfos.push({
+      title,
+      path,
+      flag
+    })
+  }
+
+  return {
+    code: 200,
+    data: softwareInfos
+  }
+}
+
+function hotTopic(request) {
+  const len = Random.natural(5, 30)
+  const hotTopicInfos = []
+  for (let index = 0; index < len; index++) {
+    const title = Random.cword(3, 10)
+    const path = Random.url()
+    const flag = Random.boolean()
+
+    hotTopicInfos.push({
+      title,
+      path,
+      flag
+    })
+  }
+
+  return {
+    code: 200,
+    data: hotTopicInfos
+  }
+}
 
 export default {
-  frequenceLink
+  frequenceLink,
+  cityBranch,
+  broCityBranch,
+  provBranch,
+  headOffice,
+  software,
+  hotTopic
 }

@@ -1,7 +1,7 @@
 <!--
  * @Author: lhj
  * @Date: 2020-10-12 15:40:36
- * @LastEditTime: 2020-10-31 19:22:49
+ * @LastEditTime: 2020-11-03 10:52:33
  * @LastEditors: Please set LastEditors
  * @Description: 卡片单元
  * @FilePath: \ls-web\src\components\content\home\card\CardListItem.vue
@@ -10,11 +10,11 @@
   <el-card ref="card" shadow="hover" >
     <div slot="header" class="clearfix">
       <b>{{ cardInfo.title }}</b>
-      <el-button style="float: right; padding: 3px 0" type="text" @click="gotoMore()">MORE>></el-button>
+      <el-button style="float: right; padding: 3px 0" type="text" @click="gotoMore(cardInfo.linkMore)">MORE>></el-button>
     </div>
     <table ref="table" style="width: 100%">
       <tr v-for="(msgInfo, index) in cardInfo.msgInfos" :key="index">
-        <td class="content" @click="gotoDetail(msgInfo.detailPath)">
+        <td class="content" @click="gotoDetail(msgInfo.linkDetail)">
           ●
           <span v-if="msgInfo.deptName" style="padding-right: 5px">[{{msgInfo.deptName}}]</span>
           {{ msgInfo.title }}
@@ -39,7 +39,7 @@ export default {
       default: function() {
         return {}
       }
-    },
+    }
   },
   data() {
     return {}
@@ -54,16 +54,16 @@ export default {
     // }
   },
   methods: {
-    gotoMore() {
-      console.log('this.cardInifo.msgInfo.path::: ', this.cardInfo.morePath)
+    gotoMore(path) {
+      console.log('this.cardInifo.msgInfo.path::: ', path)
     },
-    gotoDetail(url) {
+    gotoDetail(path) {
       // const param = { path: '/detail' }
       // this.$router.push(param)
       // this.openTabs(param)
 
 
-      console.log('this.cardInfo.msgInfo.detailPath::: ', url)
+      console.log('this.cardInfo.msgInfo.detailPath::: ', path)
     },
     openTabs(to) {
       const routeURL = this.$router.resolve({ path: to.path, query: to.query })

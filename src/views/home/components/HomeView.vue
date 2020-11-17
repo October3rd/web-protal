@@ -1,7 +1,7 @@
 <!--
  * @Author: lhj
  * @Date: 2020-10-12 20:11:35
- * @LastEditTime: 2020-10-31 22:29:52
+ * @LastEditTime: 2020-11-04 14:25:09
  * @LastEditors: Please set LastEditors
  * @Description: 卡片信息模块
  * @FilePath: \ls-web\src\views\home\components\HomeView.vue
@@ -20,7 +20,7 @@
         </el-carousel>
       </el-card>
       <card-list style="width: 37%">
-        <card-list-item v-for="(cardInfo, index) in branchNewsInfos" :key="index" :card-info="cardInfo" />
+        <card-list-item v-for="(cardInfo, index) in branchNewsInfos" :key="index" :card-info="cardInfo" :q-params="'getBranchNews'" />
       </card-list>
       <el-card class="card-carousel" style="width: 23%" shadow="hover">
         <div slot="header" class="clearfix">
@@ -92,7 +92,6 @@ import CardListItem from 'components/content/card/CardListItem'
 import HotColumn from 'views/home/components/hotcolumn/HotColumn'
 
 // api
-import { getCarouselNews } from '@/api/images/carousel.js'
 import * as themeImgAPI from '@/api/images/themeImage.js'
 import { getMarqueeYDailyNews } from '@/api/marquee/marqueeY.js'
 import * as homeCardsAPI from '@/api/cards/homeCards.js'
@@ -127,7 +126,7 @@ export default {
   },
   created () {
     // API调用
-    getCarouselNews().then(res => {
+    homeCardsAPI.getCarouselNews().then(res => {
       this.carouselInfos = res.data
     })
     themeImgAPI.getPartyTheme().then(res => {

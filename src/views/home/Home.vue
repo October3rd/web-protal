@@ -25,7 +25,7 @@
           <!-- <div style="height: 1500px;"> -->
             <!-- <slot></slot>
             <main-view /> -->
-            <router-view></router-view>
+            <router-view :key="key"></router-view>
           <!-- </div> -->
           <!-- <card-list /> -->
         </template>
@@ -96,15 +96,12 @@ export default {
       // staticAdURL: { path: '/test' },
       // 通过API调用获取菜单树
       menus: []
+      // menus: 
     }
   },
-  mounted () {
-    this.$nextTick(() => {
-  getHomeMenu().then(res => {
-        // console.log('getHomeMenus>>>', res.data.menus)
-        this.menus = res.data.menus
-        // console.log('this.menus>>>', this.menus)
-      })
+  created () {
+    getHomeMenu().then(res => {
+      this.menus = res.data.menus
     })
   },
   computed: {
@@ -113,6 +110,9 @@ export default {
       return function(name) {
         return require('assets/images/' + name)
       }
+    },
+     key() {
+      return this.$route.path
     }
   },
   methods: {

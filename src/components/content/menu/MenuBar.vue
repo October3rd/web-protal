@@ -1,7 +1,7 @@
 <!--
  * @Author: lhj
  * @Date: 2020-09-28 16:20:03
- * @LastEditTime: 2020-10-30 10:46:36
+ * @LastEditTime: 2020-11-02 15:49:22
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \ls-web\src\components\common\layout\home\MenuBar.vue
@@ -48,7 +48,12 @@ export default {
   },
   data() {
     return {
-      menuData: this.menus
+      menuData: []
+    }
+  },
+  watch: {
+    menus(newVal) {
+      this.menuData = newVal
     }
   },
   computed: {

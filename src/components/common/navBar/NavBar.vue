@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-09-29 16:50:40
- * @LastEditTime: 2020-10-09 12:34:25
+ * @LastEditTime: 2020-11-02 16:12:07
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \ls-web\src\components\common\home\NavBar.vue
@@ -28,12 +28,16 @@ export default {
 .nav-bar {
   display: flex;
   text-align: center;
-  box-shadow: 0 1px 1px rgba(100,100,100,.1);
+  // box-shadow: 0 1px 1px rgba(100,100,100,.1);
   background-color: #F3F3F3;
     
   .center {
     flex: 1;
   } 
+  
+  :focus {
+    outline:0;
+  }
 }
 
 </style>

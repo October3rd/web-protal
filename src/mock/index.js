@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-23 15:37:21
- * @LastEditTime: 2020-10-31 22:24:18
+ * @LastEditTime: 2020-11-02 09:46:09
  * @LastEditors: Please set LastEditors
  * @Description: 模拟数据
  * @FilePath: \ls-web\src\mock\index.js
@@ -22,6 +22,12 @@ const { mock } = Mock
 // 使用拦截规则拦截命中的请求
 // mock( url, post/get, 返回的数据);
 mock(/\/dev-api\/links\/frequenceLink/, 'post', links.frequenceLink) // 正则匹配
+mock(/\/dev-api\/links\/cityBranch/, 'post', links.cityBranch)
+mock(/\/dev-api\/links\/broCityBranch/, 'post', links.broCityBranch)
+mock(/\/dev-api\/links\/provBranch/, 'post', links.provBranch)
+mock(/\/dev-api\/links\/headOffice/, 'post', links.headOffice)
+mock(/\/dev-api\/links\/software/, 'post', links.software)
+mock(/\/dev-api\/links\/hotTopic/, 'post', links.hotTopic)
 mock(/\/dev-api\/marquee\/marqueeX\/advertNews/, 'post', marquee.marqueeXAdvertNews)
 mock(/\/dev-api\/marquee\/marqueeY\/dailyNews/, 'post', marquee.marqueeYDailyNews)
 // mock('/dev-api/links/frequenceLink', 'post', links.frequenceLink)

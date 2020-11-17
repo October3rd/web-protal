@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-09-27 16:01:51
- * @LastEditTime: 2020-10-27 21:03:25
+ * @LastEditTime: 2020-11-02 19:43:24
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \ls-web\vue.config.js
@@ -9,9 +9,9 @@
 const path = require('path')
 
 // 将路径片段使用\连接起来形成路径，并规范化生成的路径
-function resolve(dir) {
-  return path.join(__dirname, dir)  
-}
+// function resolve(dir) {
+//   return path.join(__dirname, dir)  
+// }
 
 const name = 'XXXXX门户'
 // If your port is set to 80,
@@ -21,7 +21,7 @@ const name = 'XXXXX门户'
 // port = 9528 npm run dev OR npm run dev --port = 8080
 const port = process.env.port || process.env.npm_config_port || 8080 // dev-port
 
-const pubPath = process.env.NODE_ENV === 'production' ? '/ls/' : './' 
+const pubPath = process.env.NODE_ENV === 'production' ? '/ls/' : '/' 
 // console.log('path::: ', process.env.NODE_ENV)
 // console.log('process.env.VUE_APP_BASE_API::: ', process.env.VUE_APP_BASE_API)
 // console.log('process.env.VUE_APP_BASE_HOST::: ', process.env.VUE_APP_BASE_HOST)

@@ -21,18 +21,21 @@ function branchNews() {
   const branchNewsInfos = []
   const msgInfos = []
   const title = '分行动态'
-  const morePath = '/index'
+  const linkMore = '/detail/news'
   const msgLen = Math.floor(Math.random() * 8) + 1
   for (let index = 0; index < msgLen; index++) {
     const title = Random.cword(5, 30)
     const editor = Random.cname()
     const editDate = Random.date('yy-MM-dd')
     const deptName = Random.cword(3, 8)
-    const detailPath = Random.url()
-    const msgInfo = { title, editor, editDate, deptName, detailPath }
+    const linkDetail = {
+      path: '/detail/content',
+      query: { articleID: '01' }
+    }
+    const msgInfo = { title, editor, editDate, deptName, linkDetail }
     msgInfos.push(msgInfo)
   }
-  branchNewsInfos.push({ title, msgInfos, morePath })
+  branchNewsInfos.push({ title, msgInfos, linkMore })
 
   return {
     code: 200, 
@@ -46,18 +49,18 @@ function notice() {
   const noticeInfos = []
   const msgInfos = []
   const title = '行内公告'
-  const morePath = '/index'
+  const linkMore = '/index'
   const msgLen = Math.floor(Math.random() * 8) + 1
   for (let index = 0; index < msgLen; index++) {
     const title = Random.cword(5, 30)
     const editor = Random.cname()
     const editDate = Random.date('yy-MM-dd')
     const deptName = Random.cword(3, 8)
-    const detailPath = Random.url()
-    const msgInfo = { title, editor, editDate, deptName, detailPath }
+    const linkDetail = Random.url()
+    const msgInfo = { title, editor, editDate, deptName, linkDetail }
     msgInfos.push(msgInfo)
   }
-  noticeInfos.push({ title, msgInfos, morePath })
+  noticeInfos.push({ title, msgInfos, linkMore })
 
   return {
     code: 200, 
@@ -71,18 +74,18 @@ function consoult() {
   const consoultInfos = []
   const msgInfos = []
   const title = '部门咨询'
-  const morePath = '/index'
+  const linkMore = '/index'
   const msgLen = Math.floor(Math.random() * 8) + 1
   for (let index = 0; index < msgLen; index++) {
     const title = Random.cword(5, 30)
     const editor = Random.cname()
     const editDate = Random.date('yy-MM-dd')
     const deptName = Random.cword(3, 8)
-    const detailPath = Random.url()
-    const msgInfo = { title, editor, editDate, deptName, detailPath }
+    const linkDetail = Random.url()
+    const msgInfo = { title, editor, editDate, deptName, linkDetail }
     msgInfos.push(msgInfo)
   }
-  consoultInfos.push({ title, msgInfos, morePath })
+  consoultInfos.push({ title, msgInfos, linkMore })
 
   return {
     code: 200, 
@@ -96,18 +99,18 @@ function deptNews() {
   const deptNewsInfos = []
   const msgInfos = []
   const title = '部门动态'
-  const morePath = '/index'
+  const linkMore = '/index'
   const msgLen = Math.floor(Math.random() * 8) + 1
   for (let index = 0; index < msgLen; index++) {
     const title = Random.cword(5, 30)
     const editor = Random.cname()
     const editDate = Random.date('yy-MM-dd')
     const deptName = Random.cword(3, 8)
-    const detailPath = Random.url()
-    const msgInfo = { title, editor, editDate, deptName, detailPath }
+    const linkDetail = Random.url()
+    const msgInfo = { title, editor, editDate, deptName, linkDetail }
     msgInfos.push(msgInfo)
   }
-  deptNewsInfos.push({ title, msgInfos, morePath })
+  deptNewsInfos.push({ title, msgInfos, linkMore })
 
   return {
     code: 200, 
@@ -121,18 +124,18 @@ function subranchNews() {
   const subranchNewsInfos = []
   const msgInfos = []
   const title = '支行动态'
-  const morePath = '/index'
+  const linkMore = '/index'
   const msgLen = Math.floor(Math.random() * 8) + 1
   for (let index = 0; index < msgLen; index++) {
     const title = Random.cword(5, 30)
     const editor = Random.cname()
     const editDate = Random.date('yy-MM-dd')
     const deptName = Random.cword(3, 8)
-    const detailPath = Random.url()
-    const msgInfo = { title, editor, editDate, deptName, detailPath }
+    const linkDetail = Random.url()
+    const msgInfo = { title, editor, editDate, deptName, linkDetail }
     msgInfos.push(msgInfo)
   }
-  subranchNewsInfos.push({ title, msgInfos, morePath })
+  subranchNewsInfos.push({ title, msgInfos, linkMore })
 
   return {
     code: 200, 
@@ -145,19 +148,19 @@ function subranchNews() {
 function weekReport() {
   const reportInfos = []
   const msgInfos = []
-  const title = '部门咨询'
-  const morePath = '/index'
+  const title = '工作周报'
+  const linkMore = '/index'
   const msgLen = Math.floor(Math.random() * 8) + 1
   for (let index = 0; index < msgLen; index++) {
     const title = Random.cword(5, 30)
     const editor = Random.cname()
     const editDate = Random.date('yy-MM-dd')
     const deptName = Random.cword(3, 8)
-    const detailPath = Random.url()
-    const msgInfo = { title, editor, editDate, deptName, detailPath }
+    const linkDetail = Random.url()
+    const msgInfo = { title, editor, editDate, deptName, linkDetail }
     msgInfos.push(msgInfo)
   }
-  reportInfos.push({ title, msgInfos, morePath })
+  reportInfos.push({ title, msgInfos, linkMore })
 
   return {
     code: 200, 
@@ -171,18 +174,18 @@ function moneyLaundy() {
   const moneyLaundyInfos = []
   const msgInfos = []
   const title = '反洗钱'
-  const morePath = '/index'
+  const linkMore = '/index'
   const msgLen = Math.floor(Math.random() * 8) + 1
   for (let index = 0; index < msgLen; index++) {
     const title = Random.cword(5, 30)
     const editor = Random.cname()
     const editDate = Random.date('yy-MM-dd')
     const deptName = Random.cword(3, 8)
-    const detailPath = Random.url()
-    const msgInfo = { title, editor, editDate, deptName, detailPath }
+    const linkDetail = Random.url()
+    const msgInfo = { title, editor, editDate, deptName, linkDetail }
     msgInfos.push(msgInfo)
   }
-  moneyLaundyInfos.push({ title, msgInfos, morePath })
+  moneyLaundyInfos.push({ title, msgInfos, linkMore })
 
   return {
     code: 200, 
@@ -196,18 +199,18 @@ function compliance() {
   const complianceInfos = []
   const msgInfos = []
   const title = '合规管理'
-  const morePath = '/index'
+  const linkMore = '/index'
   const msgLen = Math.floor(Math.random() * 8) + 1
   for (let index = 0; index < msgLen; index++) {
     const title = Random.cword(5, 30)
     const editor = Random.cname()
     const editDate = Random.date('yy-MM-dd')
     const deptName = Random.cword(3, 8)
-    const detailPath = Random.url()
-    const msgInfo = { title, editor, editDate, deptName, detailPath }
+    const linkDetail = Random.url()
+    const msgInfo = { title, editor, editDate, deptName, linkDetail }
     msgInfos.push(msgInfo)
   }
-  complianceInfos.push({ title, msgInfos, morePath })
+  complianceInfos.push({ title, msgInfos, linkMore })
 
   return {
     code: 200, 
@@ -221,18 +224,18 @@ function safeWarn() {
   const safeWarnInfos = []
   const msgInfos = []
   const title = '安全警示'
-  const morePath = '/index'
+  const linkMore = '/index'
   const msgLen = Math.floor(Math.random() * 8) + 1
   for (let index = 0; index < msgLen; index++) {
     const title = Random.cword(5, 30)
     const editor = Random.cname()
     const editDate = Random.date('yy-MM-dd')
     const deptName = Random.cword(3, 8)
-    const detailPath = Random.url()
-    const msgInfo = { title, editor, editDate, deptName, detailPath }
+    const linkDetail = Random.url()
+    const msgInfo = { title, editor, editDate, deptName, linkDetail }
     msgInfos.push(msgInfo)
   }
-  safeWarnInfos.push({ title, msgInfos, morePath })
+  safeWarnInfos.push({ title, msgInfos, linkMore })
 
   return {
     code: 200, 
@@ -246,18 +249,18 @@ function leaderSpeech() {
   const speechInfos = []
   const msgInfos = []
   const title = '行长讲话'
-  const morePath = '/index'
+  const linkMore = '/index'
   const msgLen = Math.floor(Math.random() * 8) + 1
   for (let index = 0; index < msgLen; index++) {
     const title = Random.cword(5, 30)
     const editor = Random.cname()
     const editDate = Random.date('yy-MM-dd')
     const deptName = Random.cword(3, 8)
-    const detailPath = Random.url()
-    const msgInfo = { title, editor, editDate, deptName, detailPath }
+    const linkDetail = Random.url()
+    const msgInfo = { title, editor, editDate, deptName, linkDetail }
     msgInfos.push(msgInfo)
   }
-  speechInfos.push({ title, msgInfos, morePath })
+  speechInfos.push({ title, msgInfos, linkMore })
 
   return {
     code: 200, 
@@ -271,18 +274,18 @@ function advise() {
   const adviseInfos = []
   const msgInfos = []
   const title = '工作建议'
-  const morePath = '/index'
+  const linkMore = '/index'
   const msgLen = Math.floor(Math.random() * 8) + 1
   for (let index = 0; index < msgLen; index++) {
     const title = Random.cword(5, 30)
     const editor = Random.cname()
     const editDate = Random.date('yy-MM-dd')
     const deptName = Random.cword(3, 8)
-    const detailPath = Random.url()
-    const msgInfo = { title, editor, editDate, deptName, detailPath }
+    const linkDetail = Random.url()
+    const msgInfo = { title, editor, editDate, deptName, linkDetail }
     msgInfos.push(msgInfo)
   }
-  adviseInfos.push({ title, msgInfos, morePath })
+  adviseInfos.push({ title, msgInfos, linkMore })
 
   return {
     code: 200, 
@@ -296,18 +299,18 @@ function outNews() {
   const outNewsInfos = []
   const msgInfos = []
   const title = '外部动态'
-  const morePath = '/index'
+  const linkMore = '/index'
   const msgLen = Math.floor(Math.random() * 8) + 1
   for (let index = 0; index < msgLen; index++) {
     const title = Random.cword(5, 30)
     const editor = Random.cname()
     const editDate = Random.date('yy-MM-dd')
     const deptName = Random.cword(3, 8)
-    const detailPath = Random.url()
-    const msgInfo = { title, editor, editDate, deptName, detailPath }
+    const linkDetail = Random.url()
+    const msgInfo = { title, editor, editDate, deptName, linkDetail }
     msgInfos.push(msgInfo)
   }
-  outNewsInfos.push({ title, msgInfos, morePath })
+  outNewsInfos.push({ title, msgInfos, linkMore })
 
   return {
     code: 200, 

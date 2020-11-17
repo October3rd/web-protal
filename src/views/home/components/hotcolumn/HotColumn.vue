@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-10-15 09:06:23
- * @LastEditTime: 2020-10-31 13:16:19
+ * @LastEditTime: 2020-11-03 10:58:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \ls-web\src\views\home\components\HotColumn.vue
@@ -11,7 +11,7 @@
   <el-card shadow="hover">
     <div slot="header" class="clearfix">
       <b>热点专栏</b>
-      <el-button style="float: right; padding: 3px 0" type="text" @click="gotoMore()">MORE>></el-button>
+      <!-- <el-button style="float: right; padding: 3px 0" type="text" @click="gotoMore(linkHot)">MORE>></el-button> -->
     </div>
     <el-row type="flex" >
       <el-col :span="12">
@@ -43,7 +43,8 @@ export default {
   data () {
    return {
      oddArr: [],
-     evenArr: []
+     evenArr: [],
+     linkHot: ''
    }
   },
   created () {
@@ -59,7 +60,13 @@ export default {
           return item
         }
       })
-      
+    })
+
+    this.$http({
+      url: '/links/hotTopic',
+      method: 'post'
+    }).then(res => {
+      console.log('http-->>>>>>>>>>>>')
     })
   },
   computed: {

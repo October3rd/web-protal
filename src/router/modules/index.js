@@ -1,7 +1,7 @@
 /*
  * @Author: lhj
  * @Date: 2020-10-16 14:54:37
- * @LastEditTime: 2020-10-17 11:06:41
+ * @LastEditTime: 2020-11-02 18:51:48
  * @LastEditors: Please set LastEditors
  * @Description: 自动化处理文件：自动引入路由核心文件
  * @FilePath: \ls-web\src\router\modules\index.js
@@ -19,5 +19,5 @@ files.keys().forEach(key => {
   // console.log('files(key).default::: ', files(key).default)
   configRouters = configRouters.concat(files(key).default) 
 })
-// console.log('configRouters::: ', configRouters)
+console.log('configRouters::: ', configRouters)
 export default configRouters

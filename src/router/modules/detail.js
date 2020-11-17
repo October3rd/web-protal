@@ -1,7 +1,7 @@
 /*
  * @Author: lhj
  * @Date: 2020-10-16 14:55:15
- * @LastEditTime: 2020-10-19 16:24:54
+ * @LastEditTime: 2020-11-02 20:12:29
  * @LastEditors: Please set LastEditors
  * @Description: 详情页信息
  * @FilePath: \ls-web\src\router\modules\sitemap.js
@@ -21,7 +21,7 @@ const detailRouters = [
     component: Home,
     children: [
       {
-        path: '/detail',
+        path: '',
         name: 'Detail',
         component: Detail,
         children: [
