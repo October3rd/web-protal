@@ -2,10 +2,10 @@
 node_modules
 /dist
 .vscode
-src/api
-src/mock
-src/assets
-src/router
+/src/api/*
+/src/mock/*
+/src/assets/*
+/src/router/*
 
 
 # local env files
